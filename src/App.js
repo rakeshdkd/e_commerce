@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { Button, Alert, Navbar, Container, Card } from "react-bootstrap";
+import Counter from "./components/Header";
+import Description from "./components/Description";
+import Cards from "./components/Card";
+import Footer from "./components/Footer";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Counter />
+      <Description />
+      <div >
+          <h1 style={{marginLeft:'50vw'}}>Colors</h1>
+        <div style={{ gap:'5px',display: "flex", justifyContent:'center', width:'80vw', margin:'auto' ,overflow:'auto'}}>
+          <Cards />
+        </div>
+      </div>
+      <Footer />
+
+    </>
   );
 }
 
