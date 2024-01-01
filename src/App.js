@@ -1,23 +1,38 @@
 import "./App.css";
-import { Button, Alert, Navbar, Container, Card } from "react-bootstrap";
-import Counter from "./components/Header";
+import React from "react";
+import Header from "./components/Header";
 import Description from "./components/Description";
 import Cards from "./components/Card";
 import Footer from "./components/Footer";
+import CartModal from "./components/CartModal";
 function App() {
+  const [modalShow, setModalShow] = React.useState(false);
+
   return (
-    <>
-      <Counter />
+    <div className="main">
+      <Header onClick={() => setModalShow(true)} />
       <Description />
-      <div >
-          <h1 style={{marginLeft:'50vw'}}>Colors</h1>
-        <div style={{ gap:'5px',display: "flex", justifyContent:'center', width:'80vw', margin:'auto' ,overflow:'auto'}}>
+      <CartModal
+        show={modalShow}
+        onHide={() => setModalShow((prevState) => !prevState)}
+      />
+      <div>
+        <h1 style={{ marginLeft: "50vw" }}>Colors</h1>
+        <div
+          style={{
+            gap: "5px",
+            display: "flex",
+            justifyContent: "center",
+            width: "80vw",
+            margin: "auto",
+            overflow: "auto",
+          }}
+        >
           <Cards />
         </div>
       </div>
       <Footer />
-
-    </>
+    </div>
   );
 }
 
