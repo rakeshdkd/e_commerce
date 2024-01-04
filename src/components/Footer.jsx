@@ -8,13 +8,13 @@ const Footer = () => {
           <span style={{marginLeft:'15px', fontSize:'20px'}}>The Gererics</span>
           <div style={{ marginLeft: "80%", gap: "30px", display: "flex" }}>
             <div>
-              <i class="fa fa-youtube" aria-hidden="true" style={{fontSize:'36px'}}></i>
+              <i className="fa fa-youtube" aria-hidden="true" style={{fontSize:'36px'}}></i>
             </div>
             <div>
-              <i class="fa fa-facebook" aria-hidden="true" style={{fontSize:'36px'}}></i>
+              <i className="fa fa-facebook" aria-hidden="true" style={{fontSize:'36px'}}></i>
             </div>
             <div>
-              <i class="fa fa-spotify" aria-hidden="true" style={{fontSize:'36px'}}></i>
+              <i className="fa fa-spotify" aria-hidden="true" style={{fontSize:'36px'}}></i>
             </div>
           </div>
         </div>
