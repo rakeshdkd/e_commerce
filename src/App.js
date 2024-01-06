@@ -10,6 +10,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import About from "./components/Pages/About";
 import StorePage from "./components/Pages/StorePage";
 import HomePage from "./components/Pages/HomePage";
+import Movie from "./ApiCalls/Movie";
 
 const router = createBrowserRouter([
   {path:'/', element:<HomePage />},
@@ -24,7 +25,8 @@ function App() {
 
   return (
     <>
-      <RouterProvider router={router} />
+    <Movie />
+      {/* <RouterProvider router={router} /> */}
         {/* <CartProvider>
           <div className="main">
             <Header onClick={() => setModalShow(true)} />

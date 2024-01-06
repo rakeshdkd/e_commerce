@@ -48,15 +48,16 @@ const HomePage = () => {
         </div>
 
         <div id={classes.icon}>
-          <i class="fa fa-play"></i>
+          <i className="fa fa-play"></i>
         </div>
       </div>
       <div className={classes.main_content}>
         <h1>TOURS</h1>
-        {dummyArr.map((elem) => {
+        {dummyArr.map((elem, index
+        ) => {
           return (
-            <>
-                <div className={classes.sub_content}>
+            <div key={index}>
+                <div className={classes.sub_content} >
                   <div>
                     <p>{elem.date}</p>
                   </div>
@@ -71,7 +72,7 @@ const HomePage = () => {
                   </div>
                 </div>
                 <hr />
-            </>
+            </div>
           );
         })}
       </div>

@@ -1,0 +1,47 @@
+.main{
+    width: 80vw;
+    background-color: rgb(237, 206, 206);
+    margin: auto;
+    padding: 20px;
+    border-radius: 50px;
+}
+.movieItem{
+    width: 70%;
+    background-color: rgba(82, 202, 82, 0.485);
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+.movieItem li{
+    list-style: none;
+    padding-bottom: 10px;
+    width:100%;
+    margin:auto;
+    color: white;
+}
+.movieItem p{
+    position: relative;
+    top: -34px;
+    left: 25Vw;
+    width:80%;
+    margin:auto;
+    color: rgb(73, 71, 71);
+}
+.container{
+    width: 95vw;
+    margin: auto;
+    background-color: rgb(222, 222, 239);
+    padding: 20px;
+}
+.btn{
+    margin-bottom: 50px;
+    position: relative;
+    left:45%;
+    top: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgb(111, 68, 242);
+    color: white;
+    font-size: 22px;
+    padding: 5px 10px;
+}
