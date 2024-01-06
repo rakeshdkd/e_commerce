@@ -32,11 +32,11 @@
 #nav {
   display: flex;
 }
-#nav a{
-text-decoration: none;
+#nav a {
+  text-decoration: none;
 }
 #nav a:hover,
-#nav a.active{
-    color: green;
-text-decoration: underline;
+#nav a.active {
+  color: green;
+  text-decoration: underline;
 }

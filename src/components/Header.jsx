@@ -14,15 +14,24 @@ let Header = (props) => {
     <>
       <Navbar sticky="top" className={classes.navbar}>
         <Container>
-          <Navbar.Brand href="#home">Home</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          {/* <Navbar.Collapse id="basic-navbar-nav"> */}
-          <Nav className="me-auto" id={classes.nav}>
+          <Navbar.Brand>
             <NavLink
               to="/"
               id={classes.navlink}
               className={({ isActive }) => (isActive ? classes.active : "b")}
               end
+            >
+              Home
+            </NavLink>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          {/* <Navbar.Collapse id="basic-navbar-nav"> */}
+          <Nav className="me-auto" id={classes.nav}>
+            <NavLink
+              to="/Store"
+              id={classes.navlink}
+              className={({ isActive }) => (isActive ? classes.active : "b")}
+            
             >
               Store
             </NavLink>

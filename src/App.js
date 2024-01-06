@@ -9,9 +9,11 @@ import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import About from "./components/Pages/About";
 import StorePage from "./components/Pages/StorePage";
+import HomePage from "./components/Pages/HomePage";
 
 const router = createBrowserRouter([
-  { path: "/", element: <StorePage /> },
+  {path:'/', element:<HomePage />},
+  { path: "/Store", element: <StorePage /> },
   {
     path: "/About",
     element: <About />,
