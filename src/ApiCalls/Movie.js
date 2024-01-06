@@ -5,7 +5,10 @@ import { useState } from "react";
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   const fetchMoviesHandler = async () => {
+    setIsLoading(true);
     const response = await fetch("https://swapi.dev/api/films");
     const data = await response.json();
 
@@ -17,15 +20,18 @@ const Movie = () => {
         releaseDate: movieData.release_date,
       };
     });
+    setIsLoading(false);
     return setMovies(transformedMovies);
   };
+
   return (
     <div className={classes.container}>
       <button className={classes.btn} onClick={fetchMoviesHandler}>
         Fetch Movies
       </button>
       <div>
-        <MovieList movies={movies} />
+        {!isLoading && <MovieList movies={movies} />}
+        {isLoading && <p className={classes.movieItem}>Loading......</p>}
       </div>
     </div>
   );
