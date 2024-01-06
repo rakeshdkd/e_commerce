@@ -4,28 +4,44 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import CartContext from "../Store/CartContext";
+import { NavLink } from "react-router-dom";
+import classes from "./header.module.css";
 
 let Header = (props) => {
   const cartCTX = useContext(CartContext);
   const cartItemsNumber = cartCTX.items.length;
   return (
     <>
-      <Navbar>
+      <Navbar sticky="top" className={classes.navbar}>
         <Container>
           <Navbar.Brand href="#home">Home</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           {/* <Navbar.Collapse id="basic-navbar-nav"> */}
-          <Nav className="me-auto" style={{ display: "flex" }}>
-            <Nav.Link href="#home">About</Nav.Link>
-            <Nav.Link href="#link">Store</Nav.Link>
+          <Nav className="me-auto" id={classes.nav}>
+            <NavLink
+              to="/"
+              id={classes.navlink}
+              className={({ isActive }) => (isActive ? classes.active : "b")}
+              end
+            >
+              Store
+            </NavLink>
+            <NavLink
+              to="/About"
+              id={classes.navlink}
+              className={({ isActive }) => (isActive ? classes.active : "b")}
+            >
+              About
+            </NavLink>
+
             {/* <Button className="ml-100px bg-secondary "> */}
             <i
-              className="fa fa-shopping-cart"
+              className="fa fa-shopping-cart "
               aria-hidden="true"
-              style={{ fontSize: "20px", position: "absolute", right: "2%" , border:'1px solid red', backgroundColor:'lightgreen', color:'white', borderRadius:'25px', padding:'10px 20px'}}
+              id={classes.cart}
               onClick={props.onClick}
             >
-              <p style={{position:'absolute', top:"2px", right:"4px", borderRadius:'50%',color:'white',backgroundColor:'red', padding:'2px 2px',fontSize: "15px" }}>{cartItemsNumber}</p>
+              <p className={classes.para}>{cartItemsNumber}</p>
             </i>
             {/* </Button> */}
           </Nav>

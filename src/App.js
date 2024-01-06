@@ -1,41 +1,55 @@
 import "./App.css";
 import React from "react";
-import Header from "./components/Header";
-import Description from "./components/Description";
-import Cards from "./components/Card";
-import Footer from "./components/Footer";
-import CartModal from "./components/CartModal";
-import CartProvider from "./Store/CartProvider";
+// import Header from "./components/Header";
+// import Description from "./components/Description";
+// import Cards from "./components/Card";
+// import Footer from "./components/Footer";
+// import CartModal from "./components/CartModal";
+// import CartProvider from "./Store/CartProvider";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import About from "./components/Pages/About";
+import StorePage from "./components/Pages/StorePage";
+
+const router = createBrowserRouter([
+  { path: "/", element: <StorePage /> },
+  {
+    path: "/About",
+    element: <About />,
+  },
+]);
+
 function App() {
-  const [modalShow, setModalShow] = React.useState(false);
 
   return (
-    <CartProvider>
-      <div className="main">
-        <Header onClick={() => setModalShow(true)} />
-        <Description />
-        <CartModal
-          show={modalShow}
-          onHide={() => setModalShow((prevState) => !prevState)}
-        />
-        <div>
-          <h1 style={{ marginLeft: "50vw" }}>Colors</h1>
-          <div
-            style={{
-              gap: "5px",
-              display: "flex",
-              justifyContent: "center",
-              width: "80vw",
-              margin: "auto",
-              overflow: "auto",
-            }}
-          >
-            <Cards />
+    <>
+      <RouterProvider router={router} />
+        {/* <CartProvider>
+          <div className="main">
+            <Header onClick={() => setModalShow(true)} />
+            <Description />
+            <CartModal
+              show={modalShow}
+              onHide={() => setModalShow((prevState) => !prevState)}
+            />
+            <div>
+              <h1 style={{ marginLeft: "50vw" }}>Colors</h1>
+              <div
+                style={{
+                  gap: "5px",
+                  display: "flex",
+                  justifyContent: "center",
+                  width: "80vw",
+                  margin: "auto",
+                  overflow: "auto",
+                }}
+              >
+                <Cards />
+              </div>
+            </div>
+            <Footer />
           </div>
-        </div>
-        <Footer />
-      </div>
-    </CartProvider>
+        </CartProvider> */}
+    </>
   );
 }
 
