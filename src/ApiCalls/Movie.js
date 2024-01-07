@@ -15,7 +15,7 @@ const Movie = () => {
     setError(null);
 
     try {
-      const response = await fetch("https://swapi.dev/api/film");
+      const response = await fetch("https://swapi.dev/api/films");
       if (!response.ok) {
         console.log(response.status);
         throw new Error("Something went wrong....Retrying");
@@ -42,12 +42,12 @@ const Movie = () => {
     fetchMoviesHandler();
   }, [fetchMoviesHandler]);
 
-  const cancelHandler = () => {
-    setIsLoading(true);
-    setInterval(() => {
-      setIsLoading(false);
-    }, 5000);
-  };
+//   const cancelHandler = () => {
+//     setIsLoading(true);
+//     setInterval(() => {
+//       setIsLoading(false);
+//     }, 5000);
+//   };
 
   let content = <p className={classes.movieItem}> Found no movies.</p>;
   if (movies.length > 0) {
@@ -56,7 +56,7 @@ const Movie = () => {
   if (error) {
     content = (
       <p className={classes.movieItem}>
-        {error} <button onClick={cancelHandler}>Cancel Retrying</button>
+        {error} 
       </p>
     );
   }
