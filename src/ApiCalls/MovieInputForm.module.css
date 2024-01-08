@@ -1,0 +1,55 @@
+.main {
+  width: 80vw;
+  background-color: rgb(237, 206, 206);
+  margin: auto;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.main div {
+  padding: 20px;
+}
+.main > div > label {
+  width: 100%;
+  font-weight: bold;
+}
+.main > div > input {
+  width: 100%;
+  border-radius: 8px;
+}
+.opening_txt{
+   height: 100px; 
+   width: 100%;
+   border-radius: 8px;
+   resize: none;
+   /* text-wrap: balance;
+   overflow-y: scroll; */
+}
+.btn{
+    display: flex;
+
+}
+div>button{
+    width: 140px;
+    margin: 15px auto;
+    border-radius: 18px;
+    font-size: 22px;
+    text-align: center;
+    background-color: rgb(84, 222, 84);
+
+}
+.para{
+    font-size: 14px;
+    padding: 15px;
+}
+.input_movie_container{
+    background-color: rgb(218, 196, 238);
+    border-radius: 30px;
+    margin-bottom: 12px;
+}
+.input_movie_container h2{
+    padding: 15px;
+    background-color: aliceblue;
+    border-radius: 6px;
+}
+

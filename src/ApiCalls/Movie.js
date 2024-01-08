@@ -4,6 +4,7 @@ import classes from "./MovieList.module.css";
 import { useState } from "react";
 import { useCallback } from "react";
 import { useEffect } from "react";
+import MovieInputForm from "./MovieInputForm";
 
 const Movie = () => {
   const [movies, setMovies] = useState([]);
@@ -66,6 +67,7 @@ const Movie = () => {
 
   return (
     <div className={classes.container}>
+    <MovieInputForm />
       <button className={classes.btn} onClick={fetchMoviesHandler}>
         Fetch Movies
       </button>
