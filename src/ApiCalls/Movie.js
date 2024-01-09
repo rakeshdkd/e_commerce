@@ -16,23 +16,33 @@ const Movie = () => {
     setError(null);
 
     try {
-      const response = await fetch("https://swapi.dev/api/films");
+      const response = await fetch("https://e-commerce-4abd3-default-rtdb.firebaseio.com/movies.json");
       if (!response.ok) {
         console.log(response.status);
         throw new Error("Something went wrong....Retrying");
       }
       const data = await response.json();
+const loadedMovieArr =[];
 
-      const transformedMovies = data.results.map((movieData) => {
-        return {
-          id: movieData.episode_id,
-          title: movieData.title,
-          openingText: movieData.opening_crawl,
-          releaseDate: movieData.release_date,
-        };
-      });
+for (const key in data){
+    loadedMovieArr.push({
+        id:key,
+        title:data[key].title,
+        openingText:data[key].ot,
+        releaseDate:data[key].rel_date
+
+    })
+}
+    //   const transformedMovies = data.result.map((movieData) => {
+    //     return {
+    //       id: movieData.episode_id,
+    //       title: movieData.title,
+    //       openingText: movieData.opening_crawl,
+    //       releaseDate: movieData.release_date,
+    //     };
+    //   });
       console.log("fetched");
-      setMovies(transformedMovies);
+      setMovies(loadedMovieArr);
     } catch (error) {
       setError(error.message);
     }
@@ -49,10 +59,32 @@ const Movie = () => {
 //       setIsLoading(false);
 //     }, 5000);
 //   };
+const deleteMovieHandler = async (movieId) => {
+    // Assuming movieId is the unique identifier for the movie
+    const deleteUrl = `https://e-commerce-4abd3-default-rtdb.firebaseio.com/movies/${movieId}.json`;
 
+    try {
+      const response = await fetch(deleteUrl, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (response.ok) {
+        // Update your local state to remove the deleted movie
+        setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== movieId));
+        console.log(`Movie with ID ${movieId} deleted successfully.`);
+      } else {
+        console.error(`Failed to delete movie with ID ${movieId}.`);
+      }
+    } catch (error) {
+      console.error("Error deleting movie:", error);
+    }
+  };
   let content = <p className={classes.movieItem}> Found no movies.</p>;
   if (movies.length > 0) {
-    content = <MovieList movies={movies} />;
+    content = <MovieList movies={movies} deleteMovieHandler={deleteMovieHandler} />;
   }
   if (error) {
     content = (

@@ -18,16 +18,33 @@ const MovieInputForm = () => {
     // console.log(inputMovie);
   };
 
-  const movieSubmitHandler = () => {
+  async function movieSubmitHandler() {
     const newMovieData = { ...inputMovie, id: Math.random().toString() };
     setMovieArr([...movieArr, newMovieData]);
-    console.log(movieArr);
-    setInputMovie({
-      title: "",
-      ot: "",
-      rel_date: "",
-    });
-  };
+  
+    const requestData = {
+      title: inputMovie.title,
+      ot: inputMovie.ot,
+      rel_date: inputMovie.rel_date,
+      id: newMovieData.id,
+    };
+  
+    const response = await fetch(
+      "https://e-commerce-4abd3-default-rtdb.firebaseio.com/movies.json",
+      {
+        method: "POST",
+        body: JSON.stringify(requestData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  
+    const data = await response.json();
+    console.log(data);
+    console.log(requestData);
+  }
+  
   return (
     <div className={classes.main}>
       <div>
@@ -62,7 +79,7 @@ const MovieInputForm = () => {
         <button className={classes.btn} onClick={movieSubmitHandler}>
           Add movies{" "}
         </button>
-        <h1>
+        {/* <h1>
           {movieArr.map((movie) => {
             return (
               <div key={movie.id} className={classes.input_movie_container}>
@@ -72,7 +89,7 @@ const MovieInputForm = () => {
               </div>
             );
           })}
-        </h1>
+        </h1> */}
       </div>
     </div>
   );
