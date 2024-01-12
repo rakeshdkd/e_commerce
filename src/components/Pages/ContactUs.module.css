@@ -1,0 +1,51 @@
+.container {
+  width: 80vw;
+  margin: 10px auto;
+  border: 1px solid grey;
+  border-radius: 20px;
+  background-color: rgb(221, 255, 244);
+  justify-content: center;
+  align-items: center;
+}
+h2 {
+  width: 90%;
+  margin: auto;
+  padding-top: 20px;
+}
+.contact_form {
+  width: 90%;
+  margin: auto;
+}
+.contact_form label {
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  margin: 2px;
+  /* padding: 0px 10px; */
+}
+input {
+  width: 100%;
+  background-color: antiquewhite;
+  border-radius: 5px;
+}
+
+.submit_btn {
+  display: flex;
+  width: 100px;
+  margin: auto;
+  padding: 20px 0px;
+}
+.submit_btn button {
+  width: 100px;
+  margin: auto;
+  border-radius: 20px;
+  padding: 4px;
+  background-color: rgb(99, 154, 137);
+  color: white;
+}
+
+button:hover{
+    background-color: green;
+    color: white;
+    font-weight: 600;
+}

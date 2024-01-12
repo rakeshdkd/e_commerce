@@ -43,6 +43,14 @@ let Header = (props) => {
               About
             </NavLink>
 
+            <NavLink
+              to="/ContactUs"
+              id={classes.navlink}
+              className={({ isActive }) => (isActive ? classes.active : "b")}
+            >
+              Contact Us
+            </NavLink>
+
             {/* <Button className="ml-100px bg-secondary "> */}
             <i
               className="fa fa-shopping-cart "
