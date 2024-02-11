@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { Button, Card } from "react-bootstrap";
 import CartContext from "../Store/CartContext";
+import { Link } from "react-router-dom";
 
 const Cards = () => {
   const cartCTX = useContext(CartContext);
@@ -57,7 +58,7 @@ const Cards = () => {
       <Card style={{ width: "18em", margin: 15 }} key={Item.id}>
         <Card.Img variant="top" src={Item.imageUrl} />
         <Card.Body>
-          <Card.Title>{Item.title}</Card.Title>
+          <Card.Title><Link to={`${Item.id}`}>{Item.title}</Link></Card.Title>
           <Card.Text> $ {Item.price}</Card.Text>
           <Button
             variant="primary"

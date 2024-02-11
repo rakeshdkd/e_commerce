@@ -10,6 +10,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import About from "./components/Pages/About";
 import StorePage from "./components/Pages/StorePage";
 import HomePage from "./components/Pages/HomePage";
+import ProductDetailPage from "./components/Pages/ProductDetailPage";
 // import Movie from "./ApiCalls/Movie";
 import ContactUs from "./components/Pages/ContactUs";
 const router = createBrowserRouter([
@@ -19,7 +20,8 @@ const router = createBrowserRouter([
     path: "/About",
     element: <About />,
   },
-  {path:'/ContactUs', element:<ContactUs />}
+  {path:'/ContactUs', element:<ContactUs />},
+  {path:'/Store/:productId', element:<ProductDetailPage/>}
 ]);
 
 function App() {

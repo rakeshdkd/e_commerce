@@ -47,7 +47,7 @@ const ContactUs = () => {
       <Header />
       <div className={classes.container}>
         <h2>
-          Contact us by filling this form. One our executive will contact you
+          Contact us by filling this form. One of our executive will contact you
           soon....!
         </h2>
         <div className={classes.contact_form}>
